@@ -128,7 +128,7 @@ def oled():
 
     x = 0
     font = ImageFont.load_default()
-    #font2 = ImageFont.truetype('digital-7.mono.ttf', 28)
+    font2 = ImageFont.truetype('digital-7.mono.ttf', 28)
     dateString = '%A %d %B %Y'
 
     try:
@@ -162,7 +162,7 @@ def oled():
             if pa_sw==1:
                 print("oled pause")
                 while True:
-                    time.sleep(0.001)
+                    cnt_time = now_time - first_time -sub_time
                     if pa_sw==2:
                         break;
     except KeyboardInterrupt:
@@ -203,20 +203,24 @@ def ultra_sensor_on():
             print("%.1f"%distance)          
             time.sleep(1)
 
-            if distance > 120  or distance <0:    
+            if distance > 83 or distance <0:    
               #count 함수를 불러오기
               count += 1
+              print(count)
               if count > 60*10:
                   print("over rest")
-                  buzer()
+                  #buzer()
                   stop_sw=1
                   sub_time = sub_time + 60*10
+                  cnt_time = now_time - first_time -sub_time
                   time.sleep(0.5)
             else :
+                
                 count_exception +=1
-                if count_exception ==35
-                count = 0
-                count_exception=0
+                if count_exception == 10:
+                    count = 0
+                    count_exception =0
+                    print("reset")
 
             if stop_sw==1:
                 print("sensor end")
@@ -224,9 +228,7 @@ def ultra_sensor_on():
             if pa_sw==1:
                     print("sensor pause")
                     while True:
-                        time.sleep(0.001)
                         if pa_sw==2:
-
                             break;
             else :
                 count_sensor_error =0
@@ -264,21 +266,23 @@ def pause():
 
         if GPIO.input(19) == GPIO.HIGH:
             pa_sw+=1
+            print("pa_sw : %d " % pa_sw)
+            time.sleep(0.3)
         if pa_sw==1:
             sub_time = time.time() 
             while True:
-                time.sleep(1)
                 if GPIO.input(19) == GPIO.HIGH:
                     pa_sw+=1
+                    print("pa_sw ... pa_sw : %d " % pa_sw)
                     if pa_sw==2:
-                        time.sleep(2)
-                        pa_sw=0
                         sub_time = time.time() - sub_time
+                        time.sleep(1)
+                        pa_sw=0
                         break
 
 ####### TCP TONGSIN #########
 def tcp(ttt):
-    HOST = '169.254.248.1'
+    HOST = '192.168.43.25'
     PORT = 8888
     BUFSIZE = 1024
     print(ttt)
@@ -288,7 +292,8 @@ def tcp(ttt):
     try:
 
         clientSocket.connect((HOST,PORT))
-        clientSocket.sendall(bytes("Data : %0.1f \n"%ttt, 'UTF-8'))
+        ##
+        clientSocket.sendall(bytes("1/%0.1f \n"%ttt, 'UTF-8'))
         print('Send : Hello, Server!\n')
         data = clientSocket.recv(1024)
         print(data.decode())
@@ -336,10 +341,10 @@ def light():
             if pa_sw==1:
                 print("light pause")
                 while True:
-                    time.sleep(0.001)
                     if pa_sw==2:
+                        print("light ,,,,,,")
                         break
-                    
+                time.sleep(0.0001)
         except Exception as e:
             print(e)
 
@@ -376,7 +381,13 @@ while True:
         LED.join()
 
         if stop_sw==1:
-            print((cnt_time - sub_time)/60)
-            #tcp((cnt_time-sub_time)/60)
+            if cnt_time < 0:
+                cnt_time=0
+            print((cnt_time))
+            #print((sub_time))
+            #print((cnt_time-sub_time))
+
+            
+            tcp((cnt_time))
             break
 
