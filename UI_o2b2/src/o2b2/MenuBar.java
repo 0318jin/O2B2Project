@@ -1,4 +1,5 @@
 package o2b2;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.MenuItem;
 import java.awt.event.ActionListener;
@@ -95,6 +96,7 @@ public class MenuBar extends JFrame{
 
 			//System.out.print("getID : " + m.getName());  // 아이디 프린트 하기
 			
+			
 
 			//////////////////////// file 메뉴바 /////////////////////////
 			if(m.getName().equals("SOCKET ON"))
@@ -147,13 +149,20 @@ public class MenuBar extends JFrame{
 			}
 			
 			if(m.getName().equals("그래프"))
-			{
-					JPanel05 jp5 = new JPanel05(null);
-					jp5.setBackground(new Color(50, 133, 187));
-		            getContentPane().removeAll();
-		            getContentPane().add(jp5);
-		            revalidate();
-		            repaint();
+			{	
+					try {
+//						Select_RealStudyTime srt = new Select_RealStudyTime();
+						ResultPanel jp5 = new ResultPanel();
+						jp5.setBackground(new Color(50, 133, 187));
+						getContentPane().removeAll();
+			            getContentPane().add(jp5);
+			            revalidate();
+			            repaint();
+			            
+					} catch (Exception e2) {
+						// TODO: handle exception
+					}
+
 			}
 			
 

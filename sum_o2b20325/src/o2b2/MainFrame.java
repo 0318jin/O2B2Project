@@ -6,7 +6,8 @@ public class MainFrame {
 		public static void main(String [] args) {
 			
 			new MainSetting();
-			new MenuBar();
+			o2b2.MenuBar mb  = o2b2.MenuBar.getIntance();
+			mb.MenuBar();
 //			new Graph_Db();
 			
 			
