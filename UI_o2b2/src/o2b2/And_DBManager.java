@@ -29,7 +29,7 @@ public class And_DBManager {
 	void DB_Join() { // DB Á¢¼Ó..
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3309/o2b2", "root", "1234");
+			conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3307/o2b2", "root", "1234");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

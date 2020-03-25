@@ -1,8 +1,6 @@
 package o2b2;
-
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Image;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -10,7 +8,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -28,27 +25,24 @@ class JPanel03 extends JPanel {
 	private JButton jButton2;
 	private JButton jButton3;
 	private JButton jButton4;
-	private JButton jButton5;
 	private JLabel jlabel1;
-
-	////
-
-	private JLabel jlabel2;
-
 	private JTextField jtextfield1;
-
 	private JScrollPane jScrollPane1;
 	private JTextArea jTextArea1;
+	
 	JComboBox<String> c = new JComboBox();
 	
 	void makeCombo() { // select 박스
-
-		
 		c.setSize(500, 40);
 		c.setLocation(200, 385);
-//		c.addItem("data1"); // 데이터값 넣기
-
 		
+  	    ImageIcon img1 = new ImageIcon("image/book5.png");  //이미지 경로
+	    JLabel imagelJLabel1 = new JLabel (img1);     
+	    imagelJLabel1.setSize(200,200);
+	    imagelJLabel1.setLocation(10,60);
+	    add(imagelJLabel1);
+	    
+	
 SingleTon s =SingleTon.getInstanse();
 		
 		Connection conn = null;
@@ -57,7 +51,7 @@ SingleTon s =SingleTon.getInstanse();
 	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3309/o2b2", "root", "1234");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/o2b2", "root", "1234");
 		
 			stmt = conn.createStatement();
 		
@@ -108,8 +102,6 @@ SingleTon s =SingleTon.getInstanse();
 		});
 	}
 
-////
-
 	public void init() {
 
 		// Panel p = new Panel();
@@ -141,7 +133,7 @@ SingleTon s =SingleTon.getInstanse();
 		jlabel1.setFont(jlabel1.getFont().deriveFont(20.0f));
 		add(jlabel1);
 
-		jButton1 = new JButton("UP LOADING");
+		jButton1 = new JButton(new ImageIcon("image/UP.PNG"));
 		jButton1.setSize(130, 40);
 		jButton1.setLocation(40, 240);
 		add(jButton1);
@@ -155,7 +147,7 @@ SingleTon s =SingleTon.getInstanse();
 		});
 		//
 
-		jButton2 = new JButton("INSERT");
+		jButton2 = new JButton(new ImageIcon("image/IN.PNG"));
 		jButton2.setSize(130, 40);
 		jButton2.setLocation(40, 450);
 		add(jButton2);
@@ -186,7 +178,7 @@ SingleTon s =SingleTon.getInstanse();
 	      });
 		//
 
-		jButton3 = new JButton("DELETE");
+		jButton3 = new JButton(new ImageIcon("image/DL.PNG"));
 		jButton3.setSize(130, 40);
 		jButton3.setLocation(40, 385);
 		add(jButton3);
@@ -208,7 +200,7 @@ SingleTon s =SingleTon.getInstanse();
 	      });
 		//
 
-		jButton4 = new JButton("CLEAR");
+		jButton4 = new JButton(new ImageIcon("image/CL.PNG"));
 		jButton4.setSize(130, 40);
 		jButton4.setLocation(40, 310);
 		add(jButton4);

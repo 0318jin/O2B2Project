@@ -1,7 +1,6 @@
 package o2b2;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.MenuItem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
@@ -10,25 +9,40 @@ import javax.swing.*;
 
 
 public class MenuBar extends JFrame{
+	static private MenuBar menubar = null;
+	
+	private MenuBar() {
+		
+	}
+	
+	public static MenuBar getIntance() {
+		if(menubar == null)
+			menubar = new MenuBar();
+		return menubar;
+	}
 
-	MenuBar() {
+	void MenuBar() {
 		setTitle("Study Assistants 관리자 페이지");
 		createMenu(); // 메뉴 생성, 프레임에 삽입
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		setSize(800,600);
+		setLocation(550, 200);
 		setVisible(true);
 		
 	}
+	
+	JMenuBar MenuBar1 = new JMenuBar();   // 메뉴바의 내용
+	
+	JMenu screenMenu1 = new JMenu("File"); 
+	JMenu screenMenu2 = new JMenu("회원정보");
+	JMenu screenMenu3 = new JMenu("사용자");
+	JMenu screenMenu4 = new JMenu("데이터");
+	
+
  
 	void createMenu() {
-		
-		JMenuBar MenuBar = new JMenuBar();   // 메뉴바의 내용
-		JMenu screenMenu1 = new JMenu("File"); 
-		JMenu screenMenu2 = new JMenu("회원정보");
-		JMenu screenMenu3 = new JMenu("사용자");
-		JMenu screenMenu4 = new JMenu("데이터");
-		
+
 		JMenuItem[] mListItem1 = new JMenuItem[3];  // 메뉴별 내용 배열로
 		JMenuItem[] mListItem2 = new JMenuItem[2];
 		JMenuItem[] mListItem3 = new JMenuItem[2];
@@ -43,8 +57,8 @@ public class MenuBar extends JFrame{
 		
 		mListItem2[0] = new JMenuItem("정보");
 		mListItem2[0].setName("정보");
-		mListItem2[1] = new JMenuItem("Load");
-		mListItem2[1].setName("Load");
+		mListItem2[1] = new JMenuItem("관리자");
+		mListItem2[1].setName("관리자");
 
 		mListItem3[0] = new JMenuItem("계획 학습시간");
 		mListItem3[0].setName("계획 학습시간");
@@ -78,17 +92,37 @@ public class MenuBar extends JFrame{
 			mListItem4[i].addActionListener(new myActionListener());
 		}
 		
-		MenuBar.add(screenMenu1);
-		MenuBar.add(screenMenu2);
-		MenuBar.add(screenMenu3);
-		MenuBar.add(screenMenu4);
-		setJMenuBar(MenuBar);  // menubar 보이기
+
 		
+		setJMenuBar(MenuBar1);  // menubar 보이기
+		
+		MenuBar1.add(screenMenu1);
+		MenuBar1.add(screenMenu2);
+		MenuBar1.add(screenMenu3);
+		MenuBar1.add(screenMenu4);
+		///
+		MenuBar1.setVisible(false);
+		
+		///
+		homemain jp6 = new homemain(null);
+		jp6.setBackground(new Color(50, 133, 187));
+		getContentPane().removeAll();
+		getContentPane().add(jp6);
+		revalidate();
+		repaint();
+		
+	}
+	
+	void setVisible() {
+		MenuBar1.setVisible(true);
 	}
 	class myActionListener implements ActionListener{  // 메뉴바에서 메뉴를 고를때 액션
 
+		
+		
 		@Override
 		public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
 			JMenuItem m = (JMenuItem)e.getSource();
 
 //			MenuBarAction mb = new MenuBarAction();
@@ -97,6 +131,9 @@ public class MenuBar extends JFrame{
 			//System.out.print("getID : " + m.getName());  // 아이디 프린트 하기
 			
 			
+=======
+			JMenuItem m = (JMenuItem)e.getSource();			
+>>>>>>> cb75a622b72300560e6336086be7e100c56d8c03
 
 			//////////////////////// file 메뉴바 /////////////////////////
 			if(m.getName().equals("SOCKET ON"))
@@ -165,8 +202,26 @@ public class MenuBar extends JFrame{
 
 			}
 			
-
+			if(m.getName().equals("Home"))
+			{
+					homemain jp6 = new homemain(null);
+					jp6.setBackground(new Color(50, 133, 187));
+					getContentPane().removeAll();
+					getContentPane().add(jp6);
+					revalidate();
+					repaint();
+			}
 			
+//			if(m.getName().equals("관리자"))
+//			{
+//					JPanel07 jp7 = new JPanel07(null);
+//					jp7.setBackground(new Color(50, 133, 187));
+//					getContentPane().removeAll();
+//					getContentPane().add(jp7);
+//					revalidate();
+//					repaint();
+//			}
+					
 		}
 	}		
 }

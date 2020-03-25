@@ -21,6 +21,15 @@ class JPanel05 extends JPanel{
 
     public JPanel05(JPanelTest win){
     	
+    	
+//  	    ImageIcon img1 = new ImageIcon("image/study1.png");  //이미지 경로
+//	    JLabel imagelJLabel1 = new JLabel (img1);     
+//	    imagelJLabel1.setSize(300,300);
+//	    imagelJLabel1.setLocation(8,45);
+//	   
+//	    add(imagelJLabel1);
+	    
+	    
   	    ImageIcon img = new ImageIcon("image/oba-study2.jpg");  //이미지 경로
 	    JLabel imagelJLabel = new JLabel (img);     
 	    imagelJLabel.setSize(200,60);

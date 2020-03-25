@@ -59,9 +59,6 @@ class Rasp_Main extends Thread {
 				// 클라이언트에 값을 보내는 구분
 				mRasp_Socket_Thread.write("send : " + sendmsg);
 				
-				
-//				SocketThread mSocketThread = SocketThread.get();
-//				mSocketThread.write("Rasp to Server: " +readData);
 			}
 
 		} catch (Exception e) {

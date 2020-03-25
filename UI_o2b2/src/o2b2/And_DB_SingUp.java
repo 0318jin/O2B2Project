@@ -21,7 +21,7 @@ public class And_DB_SingUp {
       Statement mStmt = null;
       try {
          Class.forName("com.mysql.jdbc.Driver");
-         String url = "jdbc:mysql://localhost:3309/o2b2";
+         String url = "jdbc:mysql://localhost:3307/o2b2";
          conn = (Connection) DriverManager.getConnection(url, "root", "1234");
 
          String sql = "insert into profile values(?,?,?)";

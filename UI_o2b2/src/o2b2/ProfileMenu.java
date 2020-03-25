@@ -15,8 +15,6 @@ import javax.swing.*;
 
 import o2b2.JPanel01.JPanelTest;
 
-
-
 class JPanel02 extends JPanel{
 	
 	private JLabel jlabel1;
@@ -40,12 +38,18 @@ class JPanel02 extends JPanel{
         c.setLocation(200, 385);
 
 //    	c.addItem("data1");  // 데이터값 넣기
+        
+  	    ImageIcon img1 = new ImageIcon("image/study1.png");  //이미지 경로
+	    JLabel imagelJLabel1 = new JLabel (img1);     
+	    imagelJLabel1.setSize(200,200);
+	    imagelJLabel1.setLocation(20,60);
+	    add(imagelJLabel1);
 
     	SingleTon s = SingleTon.getInstanse();
 
     	try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3309/o2b2", "root", "1234");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/o2b2", "root", "1234");
 		
 			stmt = conn.createStatement();
 		
@@ -114,7 +118,7 @@ class JPanel02 extends JPanel{
     	
         setLayout(null);        
         
-        jButton1 = new JButton("UP LOADING");
+        jButton1 = new JButton(new ImageIcon("image/UP.PNG"));
         jButton1.setSize(130,40);        
         jButton1.setLocation(40, 240);
         add(jButton1);
@@ -130,7 +134,7 @@ class JPanel02 extends JPanel{
          });
         //
         
-        jButton2 = new JButton("INSERT");
+        jButton2 = new JButton(new ImageIcon("image/IN.PNG"));
         jButton2.setSize(130,40);        
         jButton2.setLocation(40, 450);
         add(jButton2);
@@ -157,7 +161,7 @@ class JPanel02 extends JPanel{
          });
         //
         
-        jButton3 = new JButton("DELETE");
+        jButton3 = new JButton(new ImageIcon("image/DL.PNG"));
         jButton3.setSize(130,40);        
         jButton3.setLocation(40, 385);
         add(jButton3);
@@ -177,7 +181,7 @@ class JPanel02 extends JPanel{
          });
         //
         
-        jButton4 = new JButton("CLEAR");
+        jButton4 = new JButton(new ImageIcon("image/CL.PNG"));
         jButton4.setSize(130,40);        
         jButton4.setLocation(40, 310);
         add(jButton4);

@@ -17,7 +17,7 @@ public class Insert_RealStudyTime {
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3309/o2b2", "root", "1234");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/o2b2", "root", "1234");
 
 			String sql = "INSERT INTO RealStudyTime VALUES (?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
@@ -65,7 +65,7 @@ public class Insert_RealStudyTime {
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3309/o2b2", "root", "1234");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/o2b2", "root", "1234");
 
 			String sql = "INSERT INTO RealStudyTime VALUES (?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);

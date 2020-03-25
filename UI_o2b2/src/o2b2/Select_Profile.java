@@ -22,7 +22,7 @@ public class Select_Profile {
 			
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				conn = DriverManager.getConnection("jdbc:mysql://localhost:3309/o2b2", "root", "1234");
+				conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/o2b2", "root", "1234");
 			
 				stmt = conn.createStatement();
 			
@@ -69,7 +69,7 @@ public class Select_Profile {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3309/o2b2", "root", "1234");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/o2b2", "root", "1234");
 		
 			stmt = conn.createStatement();
 		

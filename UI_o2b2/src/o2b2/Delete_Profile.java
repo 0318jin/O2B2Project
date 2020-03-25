@@ -16,7 +16,7 @@ public class Delete_Profile {
 		
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3309/o2b2", "root", "1234");
+		conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/o2b2", "root", "1234");
 		
 //		String sql = "delete from profile where phonenum = ? and password1= ?";
 		String sql = "delete from profile where phonenum = ?";

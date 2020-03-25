@@ -44,9 +44,15 @@ class JPanel04 extends JPanel {
 		Statement stmt = null;
 		ResultSet rs = null;
 	
+  	    ImageIcon img1 = new ImageIcon("image/book3.png");  //이미지 경로
+	    JLabel imagelJLabel1 = new JLabel (img1);     
+	    imagelJLabel1.setSize(200,200);
+	    imagelJLabel1.setLocation(10,60);
+	    add(imagelJLabel1);
+	    
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3309/o2b2", "root", "1234");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/o2b2", "root", "1234");
 		
 			stmt = conn.createStatement();
 		
@@ -134,8 +140,7 @@ class JPanel04 extends JPanel {
 		setLayout(null);
 		
 		
-		ImageIcon imageForOne = new ImageIcon("image/button.png");
-		jButton1 = new JButton("",imageForOne);
+		jButton1 = new JButton(new ImageIcon("image/UP.PNG"));
 		jButton1.setSize(130, 40);
 		jButton1.setLocation(40, 240);
 		//
@@ -162,7 +167,7 @@ class JPanel04 extends JPanel {
 		});
 		//
 
-		jButton2 = new JButton("INSERT");
+		jButton2 = new JButton(new ImageIcon("image/IN.PNG"));
 		jButton2.setSize(130, 40);
 		jButton2.setLocation(40, 450);
 		add(jButton2);
@@ -196,7 +201,7 @@ class JPanel04 extends JPanel {
 		});
 		//
 
-		jButton3 = new JButton("DELETE");
+		jButton3 = new JButton(new ImageIcon("image/DL.PNG"));
 		jButton3.setSize(130, 40);
 		jButton3.setLocation(40, 385);
 		add(jButton3);
@@ -234,7 +239,7 @@ class JPanel04 extends JPanel {
 		});
 		//
 
-		jButton4 = new JButton("CLEAR");
+		jButton4 = new JButton(new ImageIcon("image/CL.PNG"));
 		jButton4.setSize(130, 40);
 		jButton4.setLocation(40, 310);
 		add(jButton4);
